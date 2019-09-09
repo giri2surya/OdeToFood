@@ -7,11 +7,18 @@
     ViewData["Title"] = "Detail";
 }
 
+@if (Model.Message != null)
+{
+    <div class="alert alert-success">@Model.Message</div>
+}
+
 <h2>@Model.Restaurant.Name</h2>
-<div>
-    
-    Location: @Model.Restaurant.Location
-</div>
+<div> ID: @Model.Restaurant.Id</div>
+<div> Location: @Model.Restaurant.Location</div>
 <div> Cusion: @Model.Restaurant.Cuisine</div>
+
+
+
 <a asp-page="./List" class="btn btn-dark">All Restaurant</a>
+
 

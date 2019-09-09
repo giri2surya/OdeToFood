@@ -7,16 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using OdeToFood.Core;
 using OdeToFood.Data;
 
-namespace OdeToFood.Pages
+namespace OdeToFood.Pages.Restaurants
 {
-    public class EditModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly IRestaurantData restaurantData;
-
         public Restaurant Restaurant { get; set; }
 
-
-        public EditModel(IRestaurantData restaurantData)
+        public DeleteModel(IRestaurantData restaurantData)
         {
             this.restaurantData = restaurantData;
         }
