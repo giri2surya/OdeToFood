@@ -8,8 +8,7 @@
             Indian, 
             Nepali,
             Dutch,
-            American, 
-            Asian
+            American
         }
     }
 
