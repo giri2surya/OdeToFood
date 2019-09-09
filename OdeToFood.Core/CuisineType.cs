@@ -7,7 +7,9 @@
             Mexican, 
             Indian, 
             Nepali,
-            Dutch
+            Dutch,
+            American, 
+            Asian
         }
     }
 
