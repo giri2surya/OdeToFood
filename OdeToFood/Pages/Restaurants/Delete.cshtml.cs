@@ -12,6 +12,7 @@ namespace OdeToFood.Pages.Restaurants
     public class DeleteModel : PageModel
     {
         private readonly IRestaurantData restaurantData;
+        [BindProperty]
         public Restaurant Restaurant { get; set; }
 
         public DeleteModel(IRestaurantData restaurantData)
@@ -26,6 +27,20 @@ namespace OdeToFood.Pages.Restaurants
                 return RedirectToPage("./PageNotFound");
             }
             return Page();
+        }
+
+        public IActionResult OnPost(int restaurantId)
+        {
+            var restaurant = restaurantData.Delete(restaurantId);
+            restaurantData.Commit();
+             if(Restaurant == null) { 
+                return RedirectToPage("./PageNotFound");
+               
+            }
+            TempData["Message"] = $"{restaurant.Name} deleted";
+            return RedirectToPage("./List");
+
+
         }
     }
 }
