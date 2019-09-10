@@ -40,7 +40,7 @@ namespace OdeToFood.Pages.Restaurants
             TempData["Message"] = $"{restaurant.Name} deleted";
             return RedirectToPage("./List");
 
-
+            // added some comments on upload
         }
     }
 }
