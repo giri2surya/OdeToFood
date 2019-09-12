@@ -1,6 +1,7 @@
 ﻿@page
 @model OdeToFood.Restaurants.ListModel
 @{
+    ViewData["Title"] = "Restaurants";
 }
     <h1>Restaurants</h1>
     <form method="get">
@@ -8,43 +9,20 @@
             <div class="input-group">
                 <input type="search" class="form-control"
                        asp-for="SearchTerm" />
-                <span class="input-group-btn">
-                    <button class="btn btn-default">
-                        <i class="fa-search"></i> search
+                <span class="input-group-append">
+                    <button class="btn btn-secondary" type="button">
+                        <i class="fa fa-search"></i>
                     </button>
                 </span>
             </div>
 
         </div>
     </form>
-        <table class="table table-dark">
-            @foreach (var restaurant in Model.Restaurants)
-            {
-            <tr>
-                
-                <td>@restaurant.Name</td>
-                <td>@restaurant.Cuisine</td>
-                <td>@restaurant.Location</td>
-                <td>
-                    <a class="btn btn-lg"
-                       asp-page="./Detail"
-                       asp-route-restaurantId="@restaurant.Id">
-                        <i class="fade fa-search"></i> search
-                    </a>
-                    <a class="btn btn-lg"
-                       asp-page="./Edit"
-                       asp-route-restaurantId="@restaurant.Id">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>edit
-                    </a>
-                    <a class="btn btn-lg"
-                       asp-page="./Delete"
-                       asp-route-restaurantId="@restaurant.Id">
-                        <i class="fa-pencil"></i>d
-                    </a>
-                </td>
-            </tr>
-            }
-        </table>
+
+@foreach (var restaurant in Model.Restaurants)
+{
+    <partial name="_Summary" model="restaurant" />
+}
 <a asp-page=".\Edit" class="btn btn-primary">Add New</a>
 
 
