@@ -32,7 +32,8 @@ namespace OdeToFood
                 
             });
 
-            services.AddScoped<IRestaurantData, SqlRestaurantData>();
+            //services.AddScoped<IRestaurantData, SqlRestaurantData>();
+            services.AddScoped<IRestaurantData, InMemoryRestaurantData > ();
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -46,7 +47,8 @@ namespace OdeToFood
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, 
+                                IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -59,11 +61,23 @@ namespace OdeToFood
                 app.UseHsts();
             }
 
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseNodeModules(env);
             app.UseCookiePolicy();
-
+            app.UseAuthentication();
             app.UseMvc();
+            app.Use(SayHelloMiddleware);
+        }
+
+        private RequestDelegate SayHelloMiddleware(RequestDelegate arg)
+        {
+            return async ctx =>
+            {
+                ctx.Response.WriteAsync("Hello World!");
+            };
         }
     }
 }

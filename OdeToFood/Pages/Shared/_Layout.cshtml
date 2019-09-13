@@ -36,6 +36,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/About">About</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Restaurants/List">Restaurants</a>
                         </li>
                         <li class="nav-item">
@@ -47,15 +50,22 @@
         </nav>
     </header>
     <div class="container">
+
         <partial name="_CookieConsentPartial" />
+
         <main role="main" class="pb-3">
+
             @RenderBody()
         </main>
+        
+
     </div>
 
     <footer class="border-top footer text-muted">
+        <vc:restaurant-count></vc:restaurant-count>
         <div class="container">
             &copy; 2019 - OdeToFood - <a asp-area="" asp-page="/Privacy">Privacy</a>
+                                    
         </div>
     </footer>
 

@@ -15,6 +15,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="OdeToCode.UseNodeModules" Version="1.0.6" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0-preview9.19421.4" />
   </ItemGroup>
 </Project>

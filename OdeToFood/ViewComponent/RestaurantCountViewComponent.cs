@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using OdeToFood.Core;
 using OdeToFood.Data;
 
-namespace OdeToFood.ViewComponent
+namespace OdeToFood.ViewComponents
 {
-    public class RestaurantCountViewComponent : ViewComponentResult
+    public class RestaurantCountViewComponent : ViewComponent
 
     {
         private readonly IRestaurantData restaurantData;
@@ -16,6 +16,11 @@ namespace OdeToFood.ViewComponent
         public RestaurantCountViewComponent(IRestaurantData restaurantData)
         {
             this.restaurantData = restaurantData;
+        }
+        public IViewComponentResult Invoke()
+        {
+            var count = restaurantData.GetCountOfRestaurants();
+            return View(count);
         }
     }
 }
