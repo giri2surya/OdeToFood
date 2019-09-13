@@ -65,13 +65,13 @@ namespace OdeToFood
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseNodeModules(env);
+            //app.UseNodeModules(env);
             app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseMvc();
-            app.Use(SayHelloMiddleware);
+            //app.Use(SayHelloMiddleware);
         }
-
+        /*
         private RequestDelegate SayHelloMiddleware(RequestDelegate arg)
         {
             return async ctx =>
@@ -79,5 +79,6 @@ namespace OdeToFood
                 ctx.Response.WriteAsync("Hello World!");
             };
         }
+        */
     }
 }
